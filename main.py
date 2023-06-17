@@ -19,9 +19,9 @@ sys.path.insert(0, "..")
 
 
 def get_local_ip():
-    ip = [(s.connect(('127.1.1.0', 53)), s.getsockname()[0], s.close()) for s in
-            [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]
-    ip = '127.1.1.0'
+    # ip = [(s.connect(('127.1.1.0', 53)), s.getsockname()[0], s.close()) for s in
+    #         [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]
+    ip = '192.168.1.67'
     return ip
 
 
@@ -60,7 +60,7 @@ def DataUpdate():
             str += f'TEST{i}\t'
     str += '\n'
     for i in range(5):
-        if i == 0:
+        if i == 0 or i == 1:
             value = 'False'
         else:
             value = random.randint(-50, 50) / 10
@@ -89,6 +89,7 @@ class ServerKivyApp(App):
                 self.console.Add(str(i.getData().GetName() + ": " + str(round(i.getVar().get_value(), 2))))
         # VarArray[-1].getVar().set_value(DataUpdate())
         self.console.Add(VarArray[-1].getVar().get_value())
+        print(VarArray[-1].getVar().get_value())
 
     def build(self):
         self.isRunning = True
