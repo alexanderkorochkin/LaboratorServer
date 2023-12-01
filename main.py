@@ -21,7 +21,7 @@ sys.path.insert(0, "..")
 def get_local_ip():
     # ip = [(s.connect(('127.1.1.0', 53)), s.getsockname()[0], s.close()) for s in
     #         [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]
-    ip = '192.168.1.67'
+    ip = '192.168.0.117'
     return ip
 
 
